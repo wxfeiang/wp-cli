@@ -1,0 +1,27 @@
+{
+  "name": "wp-cli",
+  "version": "1.0.0",
+  "description": "cli工具整理",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "wp-cli": "./bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.3.5",
+    "chalk": "^5.2.0",
+    "commander": "^10.0.1",
+    "figlet": "^1.6.0",
+    "fs-extra": "^11.1.1",
+    "git-clone": "^0.2.0",
+    "handlebars": "^4.7.7",
+    "inquirer": "^9.1.5",
+    "ora": "^6.3.0",
+    "shells": "^2.0.0"
+  }
+}
