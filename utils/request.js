@@ -2,7 +2,7 @@
  * @Author: wxfeiang
  * @Description: 请求库
  * @Date: 2023-04-16 00:42:23
- * @LastEditTime: 2023-04-16 02:03:14
+ * @LastEditTime: 2023-04-16 11:35:28
  * @FilePath: /wp-cli/utils/request.js
  */
 
@@ -36,14 +36,14 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   (response) => {
     const { code, message, data } = response // 后台返回的标准数据格式
-    if (code || code == 200) {
+
+    if (code) {
       spinner.succeed("数据请求成功！")
       return data
     } else {
-      //  答应错误消息
-      spinner.succeed("数据请求成功！")
-      spinner.fail("数据请求解析异常！")
-      // return Promise.reject(new Error("111"))
+      spinner.fail(resStatus["2001"])
+      //return Promise.reject(new Error("I was created using a function call!"))
+      return data
     }
   },
   (error) => {
@@ -56,9 +56,10 @@ service.interceptors.response.use(
         error.message = "服务器响应超时，请刷新当前页"
       }
     }
-    spinner.stop()
+    spinner.fail(error.message)
     //  答应错误消息
-    return Promise.reject(new Error(message))
+    return error.message
+    // return Promise.reject(new Error(error.message))
   }
 )
 // 封装接口请求模块

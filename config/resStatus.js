@@ -2,12 +2,13 @@
  * @Author: wxfeiang
  * @Description:  定义基础数据
  * @Date: 2023-04-16 00:43:11
- * @LastEditTime: 2023-04-16 01:04:28
+ * @LastEditTime: 2023-04-16 02:25:45
  * @FilePath: /wp-cli/config/resStatus.js
  */
 const configData = {
   // 网络请求返回的状态码
   resStatus: {
+    2001: "请求返回参数不规范,需要重新解析数据！",
     400: "错误请求",
     401: "未授权，请重新登录",
     403: "拒绝访问",

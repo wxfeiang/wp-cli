@@ -3,7 +3,8 @@
 // const program = require("commander")
 import { program } from "commander"
 
-import { gitList } from "./init.js"
+import { init } from "../lib/init.js"
+import { getTemplateList } from "../lib/list.js"
 
 program.version("1.0.0")
 
@@ -20,12 +21,17 @@ program
   .action((templateName) => {
     // 输入问题
     console.log(templateName)
+    init()
   })
 program
   .command("list")
   .description("查看当前可用的模板库")
   .action(() => {
-    gitList()
+    getTemplateList()
   })
 
 program.parse(process.argv)
+
+if (!program.args.length) {
+  program.help()
+}
